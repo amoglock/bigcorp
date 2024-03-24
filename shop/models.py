@@ -27,7 +27,7 @@ class Category(models.Model):
 
     """
     name = models.CharField('Category', max_length=250, db_index=True)
-    parent = models.ForeignKey('Parent category',
+    parent = models.ForeignKey(
                                'self', on_delete=models.CASCADE, related_name='children', blank=True, null=True
                                )
     slug = models.SlugField('URL', max_length=250, unique=True, null=False, editable=True)
